@@ -1,0 +1,35 @@
+path:
+  config_file: config.yaml
+  data_dir: ./dataset
+  result_dir: ./results
+dat:
+  params:
+    sampling_rate: 30000
+    ds_ratio: 3
+preprocess:
+  bin_msec: 400
+  laplacian: True
+  normalize: True
+model:
+  name: ResNet_1D_Custom_Multihead
+  criterion: BCEWithLogitsLoss
+param:
+  num_classes: 2
+  k_folds: 5
+  cross_val: True
+  batch_size: 128
+  epochs: 1
+  lr: 0.000001
+  strategy: "ddp_spawn"
+  early_stopping: True
+  early_stopping_patience: 10
+  model_checkpoint: True
+  class_weight: True
+result:
+  total_params: 0
+  total_params_trainable: 0
+  duration: 0
+
+
+
+
